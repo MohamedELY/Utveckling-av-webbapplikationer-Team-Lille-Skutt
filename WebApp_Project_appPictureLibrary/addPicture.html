@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Lille Skutts Gallerie</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://3.bp.blogspot.com/-1WuftAvm2KY/W0MkF979NiI/AAAAAAAAW7s/EgyJRwAl878iIOuYvukr00LqB-pMOwF5wCLcBGAs/s1600/lilleskutt.jpg"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="./css/appPictureLibrary.css" />
+    <link rel="stylesheet" href="./css/Menu.css" />
+    <link rel="stylesheet" href="./css/addForm.css" />
+  </head>
+
+  <body>
+    <div class="MainWrap">
+      <nav class="Menu">
+        <div class="icon">
+          <img src="/app-data/library/pictures/Moe/lilleskutt.png" alt="" />
+        </div>
+        <a href="index.html" class="navLink">All Pictures</a>
+        <div class="dropdown">
+          <a class="navLink dropbtn">Albums</a>
+          <div class="dropdown-content">
+            <a href="insideAlbum.html" target="_blank">Album 1</a>
+            <a href="#">Album 2</a>
+            <a href="#">New Album</a>
+          </div>
+        </div>
+      </nav>
+      <br />
+      <br />
+      <div class="FlexWrap">
+        <div class="newAlbum">
+          <form action="">
+            <fieldset>
+              <legend>Upload New Picture</legend>
+              <div class="newAlbum">
+                <label for="AlbmumName">Title of Picture:</label>
+                <input
+                  id="picTitle"
+                  name="picTitle"
+                  type="text"
+                  placeholder="e.g. Sunrise"
+                  required
+                />
+              </div>
+
+              <div class="newAlbum">
+                <label for="PicDescription">Description:</label>
+                <input
+                  id="picDescription"
+                  name="picDescription"
+                  type="text"
+                  required
+                />
+              </div>
+              <div class="pictureDiv">
+                <div class="newAlbum"></div>
+                <label for="thePic">Choose a picture:</label>
+                <input
+                  class="inputFile"
+                  type="file"
+                  id="picture"
+                  name="picture"
+                  accept="image/png, image/jpeg"
+                  required
+                />
+              </div>
+              <button class="albumBtn">Save</button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

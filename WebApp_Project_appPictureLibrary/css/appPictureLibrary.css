@@ -1,0 +1,64 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+  box-sizing: border-box;
+  background-color: rgb(66, 69, 73);
+}
+
+.FlexWrap {
+  background-color: rgb(66, 69, 73);
+	font-family: 'Oswald', sans-serif;
+  height: 100%;
+  width: 100%;
+  margin-left: 175px;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;               /* test with wrap nowrap */
+  align-items: center;           /* alignment along cross axis - center flex-start flex-end */
+  justify-content:space-evenly;  /* alignment along main axis - center flex-start flex-end space-evenly space-between space-around */
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.Menu{
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(40, 43, 48);
+  width: 170px;
+  height: 100vh;
+}
+
+.MainWrap{
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 768px) {
+  .MainWrap {
+    flex-direction: column;
+  }
+  .Menu{
+    flex-direction: row;
+    height: 150px;
+    width: 100vw;
+  }
+
+  .FlexWrap{
+    margin-left: 0px;
+    margin-top: 155px;
+  }
+
+  .navLink{
+    margin-bottom: 0px;
+    align-items: center;
+    margin-right: 40px;
+    margin-top: 50px;
+  }
+}

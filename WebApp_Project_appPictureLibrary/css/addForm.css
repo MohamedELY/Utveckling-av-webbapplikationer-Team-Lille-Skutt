@@ -1,0 +1,114 @@
+
+legend {
+    font-weight: bold;
+}
+
+fieldset {
+    border-radius: 3px;
+
+    color: white;
+    justify-content: center;
+
+}
+
+.newAlbum {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: sans-serif;
+    padding-right: 10px;
+    margin: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    align-items: center;
+
+}
+
+.newAlbum label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    align-items: center;
+    color: white;
+    font-family: sans-serif;
+
+
+}
+
+p {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    align-items: center;
+    color: white;
+    font-family: sans-serif;
+}
+
+.albumBtn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    align-items: center;
+    font-family: sans-serif;
+    margin-top: 10px;
+}
+.inputFile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    align-items: center;
+    color: white;
+    font-family: sans-serif;
+    margin-left: 90px;
+}
+
+@media (min-width: 800px) {
+    .newAlbum {
+        flex-direction: row;
+        align-items: start;
+    }
+
+    .newAlbum {
+        flex: 0 0 50%;
+        padding: 1px;
+    }
+
+    .newAlbum label {
+        flex: 1 0 50%;
+        align-items: start;
+        margin-bottom: 0;
+    }
+
+    p {
+        align-items: start;
+        margin-left: 10px;
+    }
+
+    .albumBtn {
+        align-items: start;
+        margin-left: 10px;
+
+    }
+
+    .pictureDiv {
+        align-items: center;
+        justify-content: center;
+        margin-left: 10px;
+    }
+    .inputFile{
+        align-items: start;
+        margin-left: 0px;
+    }
+}
