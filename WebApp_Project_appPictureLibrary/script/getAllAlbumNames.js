@@ -14,11 +14,22 @@ window.addEventListener('DOMContentLoaded', async () => {
 library = await lib.pictureLibraryBrowser.fetchJSON(libraryJSON);  //reading library from JSON on local server 
 //library = lib.pictureLibraryBrowser.createFromTemplate();  //generating a library template instead of reading JSON
 
-for (const picture of library.albums[1].pictures) {
+
+for (const album of library.albums) {
+    renderAlbumMenu(album.title);
+    //console.log(album.title)
+  }
+
+ /*
+ let album = library.albums[0];
+ for (const picture of album.pictures) {
     renderImage(`${album.path}/${picture.imgLoRes}`, picture.id, picture.title, picture.comment);
-    renderImage(`${album.path}/${picture.imgHiRes}`, picture.id, picture.title, picture.comment);
-}
+
+ }
+ */
 })
+
+
 window.addEventListener('click',  () => {
 
   //just to confirm that the library is accessible as a global variable read async
@@ -26,27 +37,11 @@ window.addEventListener('click',  () => {
 });
 
 //Render the images
-function renderImage(src, tag, Title, Comment) {
+function renderAlbumMenu(Title) {
 
-  const div = document.createElement('div');
-  div.className = `FlexItem`;
-  div.dataset.albumId = tag;
-  
-  const title = document.createElement('p');
-  title.className = 'title';
-  title.innerHTML = Title;
-  div.appendChild(title);
+  const title = document.createElement('a')
+  title.innerHTML = Title
 
-  const img = document.createElement('img');
-  img.src = src;
-  div.appendChild(img);
-
-  const comment = document.createElement('p');
-  comment.className = 'comment';
-  comment.innerHTML = Comment;
-  div.appendChild(comment);
-
-  const imgFlex = document.querySelector('.FlexWrap');
-  imgFlex.appendChild(div);
-
+  const imgFlex = document.querySelector('.dropdown-content');
+  imgFlex.appendChild(title);
 };

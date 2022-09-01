@@ -1,18 +1,32 @@
 .title{
     justify-content: center;
-    font-weight: bolder;
+    font-family: sans-serif;
 }
 
 .comment{
     white-space: nowrap;
     overflow: hidden;
-    text-overflow:ellipsis;  
+    text-overflow:ellipsis; 
+    font-style: italic;
+    font-size: smaller; 
 }
 
 .FlexItem {
     width: 200px;            /* fixed size will demonstrate the wrap */
-    background-color: gray;
-    border-radius: 6px;
+    background-color:#eBecf2;
+    border-radius: 12px;
     padding: 8px;
     margin: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+    box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.80),
+    5px 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+.FlexItem:hover{
+    box-shadow: 
+    -1px -1px 5px rgba(255, 255, 255, 0.60),
+    1px 1px 10px rgba(0, 0, 0, 0.30),
+    inset -2px -2px 5px rgba(255, 255, 255, 1),
+    inset 2px 2px 4px rgba(0, 0, 0, 0.30);
 }

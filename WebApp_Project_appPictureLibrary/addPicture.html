@@ -17,16 +17,12 @@
   <body>
     <div class="MainWrap">
       <nav class="Menu">
-        <div class="icon">
-          <img src="/app-data/library/pictures/Moe/lilleskutt.png" alt="" />
-        </div>
         <a href="index.html" class="navLink">All Pictures</a>
         <div class="dropdown">
           <a class="navLink dropbtn">Albums</a>
           <div class="dropdown-content">
-            <a href="insideAlbum.html" target="_blank">Album 1</a>
-            <a href="#">Album 2</a>
-            <a href="#">New Album</a>
+            <a href="insideAlbum.html">Test Album</a>
+            <a href="/addAlbum.html">New Album</a>
           </div>
         </div>
       </nav>
@@ -59,15 +55,18 @@
               </div>
               <div class="pictureDiv">
                 <div class="newAlbum"></div>
-                <label for="thePic">Choose a picture:</label>
                 <input
                   class="inputFile"
                   type="file"
                   id="picture"
                   name="picture"
                   accept="image/png, image/jpeg"
+                  style="display: none"
                   required
                 />
+                <label for="picture" style="font-weight: bolder"
+                  >*Click me to upload image*</label
+                >
               </div>
               <button class="albumBtn">Save</button>
             </fieldset>
@@ -75,5 +74,6 @@
         </div>
       </div>
     </div>
+    <script type="module" src="./script/getAllAlbumNames.js"></script>
   </body>
 </html>

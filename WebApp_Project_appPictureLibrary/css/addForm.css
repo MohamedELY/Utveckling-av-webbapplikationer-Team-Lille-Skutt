@@ -1,6 +1,7 @@
 
 legend {
     font-weight: bold;
+    color: black;
 }
 
 fieldset {
@@ -9,6 +10,8 @@ fieldset {
     color: white;
     justify-content: center;
 
+    box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.80),
+  5px 5px 10px rgba(0, 0, 0, 0.25);
 }
 
 .newAlbum {
@@ -32,7 +35,7 @@ fieldset {
     padding-left: 10px;
     padding-right: 10px;
     align-items: center;
-    color: white;
+    color: black;
     font-family: sans-serif;
 
 

@@ -3,11 +3,11 @@ body {
 	margin: 0;
 	padding: 0;
   box-sizing: border-box;
-  background-color: rgb(66, 69, 73);
+  background-color:#eBecf2;
 }
 
 .FlexWrap {
-  background-color: rgb(66, 69, 73);
+  background-color:#eBecf2;
 	font-family: 'Oswald', sans-serif;
   height: 100%;
   width: 100%;
@@ -23,6 +23,7 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 12px;
 }
 
 .Menu{
@@ -30,9 +31,13 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(40, 43, 48);
-  width: 170px;
+  justify-content:center;
+  background-color:#eBecf2;
+  width: 180px;
   height: 100vh;
+
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.80),
+    5px 5px 10px rgba(0, 0, 0, 0.25);
 }
 
 .MainWrap{
@@ -60,5 +65,9 @@ img {
     align-items: center;
     margin-right: 40px;
     margin-top: 50px;
+  }
+
+  .dropdown-content {
+    margin-top: 400px;
   }
 }

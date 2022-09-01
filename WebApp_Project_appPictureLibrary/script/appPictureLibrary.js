@@ -19,7 +19,7 @@ for (const album of library.albums) {
     //renderImage(album.headerImage, album.id);
     for (const picture of album.pictures) {
       renderImage(`${album.path}/${picture.imgLoRes}`, picture.id, picture.title, picture.comment);
-      renderImage(`${album.path}/${picture.imgHiRes}`, picture.id, picture.title, picture.comment);
+      //renderImage(`${album.path}/${picture.imgHiRes}`, picture.id, picture.title, picture.comment);
     }
   }
 })
@@ -44,7 +44,29 @@ function renderImage(src, tag, Title, Comment) {
 
   const img = document.createElement('img');
   img.src = src;
+  img.alt = Comment;
   div.appendChild(img);
+
+
+  var modal = document.getElementById("myModal");
+  var modalcontent = document.getElementById("img01");
+  var captionText = document.getElementById("caption");
+
+  img.onclick = function()
+  {
+    modal.style.display = "block";
+    modalcontent.src = this.src;
+    captionText.innerHTML = this.alt;
+  }
+
+  var span = document.getElementsByClassName("close")[0];
+
+  span.onclick = function()
+  {
+    modal.style.display = "none";
+  }
+
+
 
   const comment = document.createElement('p');
   comment.className = 'comment';

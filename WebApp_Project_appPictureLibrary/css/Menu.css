@@ -1,28 +1,44 @@
 
-.navLink {
-  color: white;
+.navLink{
   text-decoration: none;
   font-size: larger;
   font-weight: bolder;
-  border-width: 5px;
-  font-weight: bolder;
+  
   cursor: pointer;
   margin-bottom: 50px;
+  font-family: sans-serif;
+
+  text-align: center;
+  line-height: 60px;
+
+  background-color:#eBecf2;
+  color: #73787d;
+
+  width: 150px;
+  height: 60px;
+
+  border-radius: 9999px;
+
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.80),
+  5px 5px 10px rgba(0, 0, 0, 0.25);
 }
 
-.dropdown {
+.dropdown{
+  display: flex;
   position: relative;
-  display: inline-block;
+
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color:#eBecf2;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
   z-index: 1;
-  border-radius: 3px;
+  border-radius: 10px;
+
+  margin-top: 60px;
 }
 
 .dropdown-content a {
@@ -32,14 +48,29 @@
   display: block;
 }
 
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+  border-radius: 10px;
+}
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
+.navLink:hover{
+  box-shadow: 
+  -1px -1px 5px rgba(255, 255, 255, 0.60),
+  1px 1px 10px rgba(0, 0, 0, 0.30),
+  inset -2px -2px 5px rgba(255, 255, 255, 1),
+  inset 2px 2px 4px rgba(0, 0, 0, 0.30);
+}
+
 .dropdown:hover .dropbtn {
-  background-color: #6d6d6d;
+  box-shadow: 
+    -1px -1px 5px rgba(255, 255, 255, 0.60),
+    1px 1px 10px rgba(0, 0, 0, 0.30),
+    inset -2px -2px 5px rgba(255, 255, 255, 1),
+    inset 2px 2px 4px rgba(0, 0, 0, 0.30);
 }
 
 .addPicIcon{
