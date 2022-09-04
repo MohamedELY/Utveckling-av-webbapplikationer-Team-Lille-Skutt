@@ -8,21 +8,25 @@ const libraryJSON ="picture-library.json";
 let library;  //Global varibale, Loaded async from the current server in window.load event
 
 
+
 //use the DOMContentLoaded, or window load event to read the library async and render the images
 window.addEventListener('DOMContentLoaded', async () => {
 
-library = await lib.pictureLibraryBrowser.fetchJSON(libraryJSON);  //reading library from JSON on local server 
-//library = lib.pictureLibraryBrowser.createFromTemplate();  //generating a library template instead of reading JSON
+    const savedAlbumId = JSON.parse(sessionStorage.getItem("selectedAlbumId")) || []
+    library = await lib.pictureLibraryBrowser.fetchJSON(libraryJSON);  //reading library from JSON on local server 
+    //library = lib.pictureLibraryBrowser.createFromTemplate();  //generating a library template instead of reading JSON
 
-for (const album of library.albums) {
-
-    //renderImage(album.headerImage, album.id);
-    for (const picture of album.pictures) {
-      //renderImage(`${album.path}/${picture.imgLoRes}`, picture.id, picture.title, picture.comment);
-      renderImage(`${album.path}/${picture.imgHiRes}`, picture.id, picture.title, picture.comment);
+    for (const album of library.albums) {
+    
+        if(album.id === savedAlbumId){
+            //renderImage(album.headerImage, album.id);
+            for (const picture of album.pictures) {
+                //renderImage(`${album.path}/${picture.imgLoRes}`, picture.id, picture.title, picture.comment);
+                renderImage(`${album.path}/${picture.imgHiRes}`, picture.id, picture.title, picture.comment);
+            }
+        }
     }
-  }
-})
+});
 
 window.addEventListener('click',  () => {
 
@@ -35,7 +39,7 @@ function renderImage(src, tag, Title, Comment) {
 
   const div = document.createElement('div');
   div.className = `FlexItem`;
-  div.dataset.albumId = tag;
+  div.dataset.picId = tag;
   
   const title = document.createElement('p')
   title.className = 'title'
@@ -65,7 +69,6 @@ function renderImage(src, tag, Title, Comment) {
   {
     modal.style.display = "none";
   }
-
 
 
   const comment = document.createElement('p');

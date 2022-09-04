@@ -14,19 +14,11 @@ window.addEventListener('DOMContentLoaded', async () => {
 library = await lib.pictureLibraryBrowser.fetchJSON(libraryJSON);  //reading library from JSON on local server 
 //library = lib.pictureLibraryBrowser.createFromTemplate();  //generating a library template instead of reading JSON
 
-
+//Get all Album titles and id's
 for (const album of library.albums) {
-    renderAlbumMenu(album.title);
+    renderAlbumMenu(album.title, album.id);
     //console.log(album.title)
   }
-
- /*
- let album = library.albums[0];
- for (const picture of album.pictures) {
-    renderImage(`${album.path}/${picture.imgLoRes}`, picture.id, picture.title, picture.comment);
-
- }
- */
 })
 
 
@@ -37,11 +29,17 @@ window.addEventListener('click',  () => {
 });
 
 //Render the images
-function renderAlbumMenu(Title) {
+function renderAlbumMenu(Title, AlbumId) {
 
-  const title = document.createElement('a')
-  title.innerHTML = Title
+  const menuBlock = document.createElement('a');
+  menuBlock.textContent = Title;
+
+  menuBlock.href = "insideAlbum.html";
 
   const imgFlex = document.querySelector('.dropdown-content');
-  imgFlex.appendChild(title);
+  imgFlex.appendChild(menuBlock);
+
+  menuBlock.addEventListener("click", ()=> {
+    sessionStorage.setItem('selectedAlbumId', JSON.stringify(AlbumId))
+  });
 };

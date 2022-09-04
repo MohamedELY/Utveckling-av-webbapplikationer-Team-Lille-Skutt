@@ -21,7 +21,6 @@
         <div class="dropdown">
           <a class="navLink dropbtn">Albums</a>
           <div class="dropdown-content">
-            <a href="insideAlbum.html">Test Album</a>
             <a href="#">New Album</a>
           </div>
         </div>
@@ -29,51 +28,45 @@
       <br />
       <br />
       <div class="FlexWrap">
-        <div class="newAlbum">
-          <form action="">
-            <fieldset class="fieldArea">
-              <legend>Create a new album</legend>
-              <div class="newAlbum">
-                <label for="AlbmumName">What should the album be called?</label>
-                <input
-                  id="AlbmumName"
-                  name="AlbmumName"
-                  type="text"
-                  placeholder="e.g. Spain"
-                  required
-                />
-              </div>
+        <form action="" class="containerForm">
+          <div class="brand-title">Create New Album</div>
 
-              <div class="newAlbum">
-                <label for="commentAlbum">Make a comment of the album?</label>
-                <input
-                  id="commentAlbum"
-                  name="commentAlbum"
-                  type="text"
-                  required
-                />
-              </div>
-              <div class="pictureDiv">
-                <div class="newAlbum"></div>
-                <input
-                  class="inputFile"
-                  type="file"
-                  id="picture"
-                  name="picture"
-                  accept="image/png, image/jpeg"
-                  style="display: none"
-                  required
-                />
-                <label for="picture" style="font-weight: bolder"
-                  >*Click me to upload image*</label
-                >
-              </div>
-              <button class="albumBtn">Save</button>
-            </fieldset>
-          </form>
-        </div>
+          <div class="inputs">
+            <label>Album Title:</label>
+            <input
+              type="text"
+              id="albumTitle"
+              placeholder="E.g Sunsets"
+              required
+            />
+
+            <label>Description:</label>
+            <input
+              type="text"
+              id="albumDescription"
+              placeholder="E.g. My collection of s..."
+              required
+            />
+
+            <label class="dropFileTitle">Header Picture:</label>
+            <div class="drop-zone">
+              <span class="drop-zone__prompt"
+                >Drop file here or click to upload</span
+              >
+              <input
+                type="file"
+                name="myFile"
+                class="drop-zone__input"
+                required
+              />
+            </div>
+
+            <button type="submit">CREATE ALBUM</button>
+          </div>
+        </form>
       </div>
     </div>
     <script type="module" src="./script/getAllAlbumNames.js"></script>
+    <script type="module" src="./script/dragAndDropFile.js"></script>
   </body>
 </html>

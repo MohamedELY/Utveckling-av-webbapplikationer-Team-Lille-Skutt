@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/appPictureLibrary.css" />
     <link rel="stylesheet" href="./css/Menu.css" />
     <link rel="stylesheet" href="./css/item.css" />
+    <link rel="stylesheet" href="./css/modal.css" />
   </head>
   <body>
     <div class="MainWrap">
@@ -20,7 +21,6 @@
         <div class="dropdown">
           <a class="navLink dropbtn">Albums</a>
           <div class="dropdown-content">
-            <a href="#">Test Album</a>
             <a href="/addAlbum.html">New Album</a>
           </div>
         </div>
@@ -48,7 +48,19 @@
       <div class="FlexItem">
       </div>
       --></div>
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01" />
+
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+      </div>
     </div>
     <script type="module" src="./script/getAllAlbumNames.js"></script>
+    <script type="module" src="./script/getSpecifikAlbum.js"></script>
   </body>
 </html>

@@ -15,65 +15,60 @@
   </head>
 
   <body>
-    <div class="MainWrap">
-      <nav class="Menu">
-        <a href="index.html" class="navLink">All Pictures</a>
-        <div class="dropdown">
-          <a class="navLink dropbtn">Albums</a>
-          <div class="dropdown-content">
-            <a href="insideAlbum.html">Test Album</a>
-            <a href="/addAlbum.html">New Album</a>
+    <body>
+      <div class="MainWrap">
+        <nav class="Menu">
+          <a href="index.html" class="navLink">All Pictures</a>
+          <div class="dropdown">
+            <a class="navLink dropbtn">Albums</a>
+            <div class="dropdown-content">
+              <a href="#">New Album</a>
+            </div>
           </div>
-        </div>
-      </nav>
-      <br />
-      <br />
-      <div class="FlexWrap">
-        <div class="newAlbum">
-          <form action="">
-            <fieldset>
-              <legend>Upload New Picture</legend>
-              <div class="newAlbum">
-                <label for="AlbmumName">Title of Picture:</label>
+        </nav>
+        <br />
+        <br />
+        <div class="FlexWrap">
+          <form action="" class="containerForm">
+            <div class="brand-title">Uppload Picture</div>
+
+            <div class="inputs">
+              <label>Picture Title:</label>
+              <input
+                type="text"
+                id="pictureTitle"
+                placeholder="E.g Sunsets"
+                required
+              />
+
+              <label>Description:</label>
+              <input
+                type="text"
+                id="albumDescription"
+                placeholder="E.g I saw a beuti..."
+                required
+              />
+
+              <label class="dropFileTitle">Picture:</label>
+              <div class="drop-zone">
+                <span class="drop-zone__prompt"
+                  >Drop file here or click to upload</span
+                >
                 <input
-                  id="picTitle"
-                  name="picTitle"
-                  type="text"
-                  placeholder="e.g. Sunrise"
+                  type="file"
+                  name="myFile"
+                  class="drop-zone__input"
                   required
                 />
               </div>
 
-              <div class="newAlbum">
-                <label for="PicDescription">Description:</label>
-                <input
-                  id="picDescription"
-                  name="picDescription"
-                  type="text"
-                  required
-                />
-              </div>
-              <div class="pictureDiv">
-                <div class="newAlbum"></div>
-                <input
-                  class="inputFile"
-                  type="file"
-                  id="picture"
-                  name="picture"
-                  accept="image/png, image/jpeg"
-                  style="display: none"
-                  required
-                />
-                <label for="picture" style="font-weight: bolder"
-                  >*Click me to upload image*</label
-                >
-              </div>
-              <button class="albumBtn">Save</button>
-            </fieldset>
+              <button type="submit">UPLOAD IMAGE</button>
+            </div>
           </form>
         </div>
       </div>
-    </div>
-    <script type="module" src="./script/getAllAlbumNames.js"></script>
+      <script type="module" src="./script/getAllAlbumNames.js"></script>
+      <script type="module" src="./script/dragAndDropFile.js"></script>
+    </body>
   </body>
 </html>

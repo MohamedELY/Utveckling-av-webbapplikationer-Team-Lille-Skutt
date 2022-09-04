@@ -21,6 +21,7 @@
 
   box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.80),
   5px 5px 10px rgba(0, 0, 0, 0.25);
+  transition: 0.5s;
 }
 
 .dropdown{
@@ -35,9 +36,8 @@
   background-color:#eBecf2;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
-  z-index: 1;
+  z-index: 2;
   border-radius: 10px;
-
   margin-top: 60px;
 }
 

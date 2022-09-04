@@ -8,10 +8,22 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="Main">
-      <button class="btn">Send</button>
-      <input type="file" name="uploadfile" id="img" style="display: none" />
-      <label for="img">Click me to upload image</label>
+    <div class="container">
+      <div class="brand-title">Create New Album</div>
+      <div class="inputs">
+        <label>Album Title:</label>
+        <input type="text" id="albumTitle" placeholder="E.g Sunsets" required />
+
+        <label>Description:</label>
+        <input
+          type="text"
+          id="albumDescription"
+          placeholder="E.g. My collection of s..."
+          required
+        />
+
+        <button type="submit">CREATE</button>
+      </div>
     </div>
   </body>
 </html>
