@@ -14,9 +14,9 @@ body {
   margin-left: 175px;
   margin-top: 0px;
   display: flex;
-  flex-wrap: wrap;               /* test with wrap nowrap */
-  align-items: center;           /* alignment along cross axis - center flex-start flex-end */
-  justify-content:space-evenly;  /* alignment along main axis - center flex-start flex-end space-evenly space-between space-around */
+  flex-wrap: wrap;               
+  align-items: center;           
+  justify-content:space-evenly;  
 }
 
 img {

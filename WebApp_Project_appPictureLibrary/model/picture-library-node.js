@@ -46,7 +46,7 @@ class pictureLibraryNode extends lib.pictureLibrary {
  }
 
 //debugging purpose only
-/*
+
 //generate a new JSON file from a template
 let library = pictureLibraryNode.createJSON(libraryJSON);
 
@@ -66,7 +66,7 @@ for (const album of library.albums) {
     console.log('---------------\n');
 }
 console.groupEnd();
-*/
+
 
 
 //helper functions to read and write JSON

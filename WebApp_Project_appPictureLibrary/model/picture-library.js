@@ -41,7 +41,7 @@ class pictureLibrary {
 }
 
 //debugging only
-/*
+
 const library = pictureLibrary.createFromTemplate();
 
 console.group('list all albums and picture ');
@@ -68,6 +68,6 @@ console.log(`album ${album.title} with id: ${album.id} has ${album.pictures.leng
 album = library.findAlbumById(album.id);
 console.log(`album ${album.title} with id: ${album.id} has ${album.pictures.length} pictures`);
 console.groupEnd();
-*/
+
 
 export {pictureLibrary};

@@ -10,7 +10,7 @@
     align-items: center;
     text-align: center;
     justify-content: center;
-    place-items: center;
+    place-items: start;
     overflow: hidden;
     font-family: poppins;
   }

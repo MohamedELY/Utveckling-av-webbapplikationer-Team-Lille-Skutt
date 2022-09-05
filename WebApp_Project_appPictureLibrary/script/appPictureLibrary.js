@@ -18,8 +18,8 @@ for (const album of library.albums) {
 
     //renderImage(album.headerImage, album.id);
     for (const picture of album.pictures) {
-      //renderImage(`${album.path}/${picture.imgLoRes}`, picture.id, picture.title, picture.comment);
-      renderImage(`${album.path}/${picture.imgHiRes}`, picture.id, picture.title, picture.comment);
+      renderImage(`${album.path}/${picture.imgLoRes}`, `${album.path}/${picture.imgHiRes}`, picture.id, picture.title, picture.comment);
+      //renderImage(`${album.path}/${picture.imgHiRes}`, picture.id, picture.title, picture.comment);
     }
   }
 })
@@ -31,7 +31,7 @@ window.addEventListener('click',  () => {
 });
 
 //Render the images
-function renderImage(src, tag, Title, Comment) {
+function renderImage(srcL, srcH, tag, Title, Comment) {
 
   const div = document.createElement('div');
   div.className = `FlexItem`;
@@ -43,7 +43,7 @@ function renderImage(src, tag, Title, Comment) {
   div.appendChild(title)
 
   const img = document.createElement('img');
-  img.src = src;
+  img.src = srcL;
   img.alt = Comment;
   div.appendChild(img);
 
@@ -55,7 +55,7 @@ function renderImage(src, tag, Title, Comment) {
   img.onclick = function()
   {
     modal.style.display = "block";
-    modalcontent.src = this.src;
+    modalcontent.src = srcH;
     captionText.innerHTML = this.alt;
   }
 
