@@ -1,14 +1,16 @@
 const express = require('express');
 const formidable = require('formidable');
 const cors = require('cors');
+const { response } = require('express');
 
 const app = express();
-const port = 8080;
+const port = 3000;
+
 
 app.use(cors());
 
 app.get('/', (req, res) =>
-  res.send('Example server for receiving JS POST requests')
+  res.redirect('../addAlbum')
 );
 
 app.post('/', (req, res) => {
@@ -19,10 +21,10 @@ app.post('/', (req, res) => {
       return;
     }
     console.log('POST body:', fields);
-    res.sendStatus(200);
+    res.sendStatus(200); 
   });
 });
 
 app.listen(port, () =>
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`http://localhost:${port} is listening.`)
 );

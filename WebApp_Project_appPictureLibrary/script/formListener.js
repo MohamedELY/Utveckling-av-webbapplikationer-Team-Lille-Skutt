@@ -3,7 +3,7 @@
 
 //https://developer.mozilla.org/en-US/docs/Web/API/FormData
 
-const myForm = document.getElementById('add-Album-Form');
+const myForm = Document.getElementById('add-Album-Form');
 
 //Start the server by opening a terminal in /case-study-server and type node simple-with-form.js
 const url = 'http://localhost:3000/api/upload';
