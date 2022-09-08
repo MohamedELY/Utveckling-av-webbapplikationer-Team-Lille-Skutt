@@ -13,6 +13,7 @@
 
 .FlexItem {
     width: 200px;            /* fixed size will demonstrate the wrap */
+    /*height: 200px;*/
     background-color:#eBecf2;
     cursor:pointer;
     border-radius: 12px;

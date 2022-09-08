@@ -3,7 +3,7 @@
 
 //https://developer.mozilla.org/en-US/docs/Web/API/FormData
 
-const myForm = Document.getElementById('add-Album-Form');
+const myForm = document.getElementById('add-Album-Form');
 
 //Start the server by opening a terminal in /case-study-server and type node simple-with-form.js
 const url = 'http://localhost:3000/api/upload';
@@ -29,12 +29,18 @@ myForm.addEventListener('submit', async event => {
     if (response.ok) {
       alert("Album has been created");
     }
+    else if(response.status == 415){
+      alert("Invalid format");
+    }
+    else if(response.status == 501){
+      alert("Error creating album");
+    }
     else {
       alert("Transmission error");
     }
     console.log(result);
   }
   catch {
-    alert("Transmission error");
+    alert("Transmission error hej");
   }
 });
