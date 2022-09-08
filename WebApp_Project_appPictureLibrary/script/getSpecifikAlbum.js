@@ -41,6 +41,11 @@ function renderImage(src, tag, Title, Comment) {
   div.className = `FlexItem`;
   div.dataset.picId = tag;
   
+  const editBtn = document.createElement('button');
+  editBtn.className = "editBtn";
+  editBtn.id = tag; 
+  div.appendChild(editBtn)
+
   const title = document.createElement('p')
   title.className = 'title'
   title.innerHTML = Title
