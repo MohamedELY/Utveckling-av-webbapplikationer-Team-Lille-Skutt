@@ -53,12 +53,14 @@ function renderImage(src, tag, Title, Comment) {
 
 
   var modal = document.getElementById("myModal");
+  var bigTitle = document.getElementById("big-title");
   var modalcontent = document.getElementById("img01");
   var captionText = document.getElementById("caption");
 
   img.onclick = function()
   {
     modal.style.display = "block";
+    bigTitle.innerHTML = Title;
     modalcontent.src = this.src;
     captionText.innerHTML = this.alt;
   }

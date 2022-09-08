@@ -36,11 +36,11 @@ function renderImage(srcL, srcH, tag, Title, Comment) {
   const div = document.createElement('div');
   div.className = `FlexItem`;
   div.dataset.albumId = tag;
-  
-  const title = document.createElement('p')
-  title.className = 'title'
-  title.innerHTML = Title
-  div.appendChild(title)
+
+  const title = document.createElement('p');
+  title.className = 'title';
+  title.innerHTML = Title;
+  div.appendChild(title);
 
   const img = document.createElement('img');
   img.src = srcL;
@@ -49,12 +49,14 @@ function renderImage(srcL, srcH, tag, Title, Comment) {
 
 
   var modal = document.getElementById("myModal");
+  var bigTitle = document.getElementById("big-title");
   var modalcontent = document.getElementById("img01");
   var captionText = document.getElementById("caption");
 
   img.onclick = function()
   {
     modal.style.display = "block";
+    bigTitle.innerHTML = Title;
     modalcontent.src = srcH;
     captionText.innerHTML = this.alt;
   }
