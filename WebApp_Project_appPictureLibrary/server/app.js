@@ -45,7 +45,7 @@ app.post('/api/upload', (req, res) => {
 
       // Process uploaded image
       let oldPath = files.myFile.filepath;
-      let newPath = albumHeaderDir + `/${title}-header.${fileExtention}`;
+      let newPath = albumHeaderDir + `${title}-header.${fileExtention}`;
 
       // Todo : check file size (for limiting)
 
