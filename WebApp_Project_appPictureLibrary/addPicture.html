@@ -29,14 +29,15 @@
         <br />
         <br />
         <div class="FlexWrap">
-          <form action="" class="containerForm">
-            <div class="brand-title">Uppload Picture</div>
+          <form id="add-Picture-Form" class="containerForm">
+            <div class="brand-title">Upload Picture</div>
 
             <div class="inputs">
               <label>Picture Title:</label>
               <input
                 type="text"
                 id="pictureTitle"
+                name="pictureTitle"
                 placeholder="E.g Sunsets"
                 required
               />
@@ -44,21 +45,35 @@
               <label>Description:</label>
               <input
                 type="text"
-                id="albumDescription"
+                id="pictureDescription"
+                name="pictureDescription"
                 placeholder="E.g I saw a beuti..."
                 required
               />
 
-              <label class="dropFileTitle">Picture:</label>
+              <label class="dropFileTitle">Picture (High Quality):</label>
               <div class="drop-zone">
                 <span class="drop-zone__prompt"
                   >Drop file here or click to upload</span
                 >
                 <input
                   type="file"
-                  name="myFile"
+                  id="myFileHigh"
+                  name="myFileHigh"
                   class="drop-zone__input"
-                  required
+                />
+              </div>
+
+              <label class="dropFileTitle">Picture (Low Quality):</label>
+              <div class="drop-zone">
+                <span class="drop-zone__prompt"
+                  >Drop file here or click to upload</span
+                >
+                <input
+                  type="file"
+                  id="myFileLow"
+                  name="myFileLow"
+                  class="drop-zone__input"
                 />
               </div>
 
@@ -69,6 +84,7 @@
       </div>
       <script type="module" src="./script/getAllAlbumNames.js"></script>
       <script type="module" src="./script/dragAndDropFile.js"></script>
+      <script type="module" src="./script/formListener.js"></script>
     </body>
   </body>
 </html>

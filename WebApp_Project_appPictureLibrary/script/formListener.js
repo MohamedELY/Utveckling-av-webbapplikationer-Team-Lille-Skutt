@@ -2,45 +2,88 @@
 'use strict';  // Try without strict mode
 
 //https://developer.mozilla.org/en-US/docs/Web/API/FormData
-
-const myForm = document.getElementById('add-Album-Form');
+const albumForm = document.getElementById('add-Album-Form');
+const pictureForm = document.getElementById('add-Picture-Form');
 
 //Start the server by opening a terminal in /case-study-server and type node simple-with-form.js
-const url = 'http://localhost:3000/api/upload';
+const urlAlbumForm = 'http://localhost:3000/api/upload/album';
+const urlPictureForm = 'http://localhost:3000/api/upload/picture';
 
+if (albumForm !== null)
+{
+  albumForm.addEventListener('submit', async event => {
+    event.preventDefault();
 
-myForm.addEventListener('submit', async event => {
-  event.preventDefault();
+    //Create the key/value pairs used in the form
+    const formDataAddAlbum = new FormData(albumForm);
 
-  //Create the key/value pairs used in the form
-  const formData = new FormData(myForm);
+    //show that you can append any field. For example a API key
+    formDataAddAlbum.append('user', true);
 
-  //show that you can append any field. For example a API key
-  formData.append('user', true);
+    try {
+      //send the data using post and await the reply
+      const response = await fetch(urlAlbumForm, {
+        method: 'post',
+        body: formDataAddAlbum
+      });
+      const result = await response.text();
 
-  try {
-    //send the data using post and await the reply
-    const response = await fetch(url, {
-      method: 'post',
-      body: formData
-    });
-    const result = await response.text();
-
-    if (response.ok) {
-      alert("Album has been created");
+      if (response.ok) {
+        alert("Album has been created");
+      }
+      else if(response.status == 415){
+        alert("Invalid format");
+      }
+      else if(response.status == 501){
+        alert("Error creating album");
+      }
+      else {
+        alert("Transmission error");
+      }
+      console.log(result);
     }
-    else if(response.status == 415){
-      alert("Invalid format");
+    catch {
+      alert("Transmission error hej");
     }
-    else if(response.status == 501){
-      alert("Error creating album");
+  });
+}
+
+if (pictureForm !== null)
+{
+  pictureForm.addEventListener('submit', async event => {
+    event.preventDefault();
+    console.log("inside Listener");
+    //Create the key/value pairs used in the form
+    const formData = new FormData(pictureForm);
+
+    //show that you can append any field. For example a API key
+    const albumId = JSON.parse(sessionStorage.getItem("selectedAlbumId")) || []
+    formData.append('albumId', albumId);
+
+    try {
+      //send the data using post and await the reply
+      const response = await fetch(urlPictureForm, {
+        method: 'post',
+        body: formData
+      });
+      const result = await response.text();
+
+      if (response.ok) {
+        alert("Pcitures have been uploaded");
+      }
+      else if(response.status == 415){
+        alert("Invalid format");
+      }
+      else if(response.status == 501){
+        alert("Error creating album");
+      }
+      else {
+        alert("Transmission error");
+      }
+      console.log(result);
     }
-    else {
-      alert("Transmission error");
+    catch {
+      alert("Transmission error hej");
     }
-    console.log(result);
-  }
-  catch {
-    alert("Transmission error hej");
-  }
-});
+  });
+}

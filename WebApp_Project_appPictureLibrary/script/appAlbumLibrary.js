@@ -13,7 +13,6 @@ let library;  //Global varibale, Loaded async from the current server in window.
 window.addEventListener('DOMContentLoaded', async () => {
 
     library = await lib.pictureLibraryBrowser.fetchJSON(libraryJSON);  //reading library from JSON on local server 
-    console.log(library);
 
     for (const album of library.albums) {
         renderAlbums(album.headerImage, album.title, album.id, album.comment); 
