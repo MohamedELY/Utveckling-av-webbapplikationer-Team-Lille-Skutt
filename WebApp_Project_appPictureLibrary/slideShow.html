@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Lille Skutts Gallerie</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://3.bp.blogspot.com/-1WuftAvm2KY/W0MkF979NiI/AAAAAAAAW7s/EgyJRwAl878iIOuYvukr00LqB-pMOwF5wCLcBGAs/s1600/lilleskutt.jpg"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="./css/appPictureLibrary.css" />
+    <link rel="stylesheet" href="./css/Menu.css" />
+    <link rel="stylesheet" href="./css/item.css" />
+    <link rel="stylesheet" href="./css/modal.css" />
+    <link rel="stylesheet" href="./css/slideShow.css" />
+  </head>
+
+  <body>
+    <div class="MainWrap">
+      <nav class="Menu">
+        <a href="index.html" class="navLink">All Pictures</a>
+        <div class="dropdown">
+          <a class="navLink" href="/allAlbums.html">Albums</a>
+          <div class="dropdown-content">
+            <a href="addAlbum.html">New Album</a>
+          </div>
+        </div>
+      </nav>
+      <br />
+      <br />
+
+      <div class="slideshow-container">
+        <div class="FlexWrap">
+          <!-- Below is being rendered in the js
+        <div class="FlexItem">
+        </div>
+        
+        --></div>
+
+        <div class="DotWrap">
+          <!-- Below is being rendered in the js
+            <div class="FlexItem">
+            </div>-->
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./script/getAllAlbumNames.js"></script>
+    <script type="module" src="./script/getSpecifikAlbum.js"></script>
+    <script type="module" src="./script/slideShow.js"></script>
+  </body>
+</html>
