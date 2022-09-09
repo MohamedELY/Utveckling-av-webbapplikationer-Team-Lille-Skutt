@@ -21,8 +21,8 @@ window.addEventListener('DOMContentLoaded', async () => {
         if(album.id === savedAlbumId){
             //renderImage(album.headerImage, album.id);
             for (const picture of album.pictures) {
-                //renderImage(`${album.path}/${picture.imgLoRes}`, picture.id, picture.title, picture.comment);
-                renderImage(`${album.path}/${picture.imgHiRes}`, picture.id, picture.title, picture.comment);
+              //renderImage(`${album.path}/${picture.imgLoRes}`, picture.id, picture.title, picture.comment);
+              renderImage(`${album.path}/${picture.imgHiRes}`, picture.id, picture.title, picture.comment);
             }
         }
     }
@@ -43,7 +43,8 @@ function renderImage(src, tag, Title, Comment) {
   
   const editBtn = document.createElement('button');
   editBtn.className = "editBtn";
-  editBtn.id = tag; 
+  editBtn.id = tag;
+  editBtn.innerHTML = "🖉"; 
   div.appendChild(editBtn)
 
   const title = document.createElement('p')
