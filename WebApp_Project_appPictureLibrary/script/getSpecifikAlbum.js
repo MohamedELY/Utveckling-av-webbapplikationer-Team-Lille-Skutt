@@ -62,6 +62,7 @@ function renderImage(src, tag, Title, Comment) {
     ratedPictureIdHolder.ariaValueText = tag;
   });
 
+
   let closeBtn = document.querySelector(".ratingWindowModalHeader .btnCloseModal");
   closeBtn.addEventListener('click', () => { pageContentInModal.style.display = "none"; })
 

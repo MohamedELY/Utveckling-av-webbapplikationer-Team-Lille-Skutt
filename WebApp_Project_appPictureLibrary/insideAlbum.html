@@ -61,7 +61,32 @@
         <!-- Modal Caption (Image Text) -->
         <div id="caption"></div>
       </div>
+
+      <div class="rateContentInModal">
+        <div class="ratingWindowModal">
+            <div class="ratingWindowModalHeader">
+                <h2>Modal header</h2>
+                <span class="btnCloseModal">&times;</span>
+            </div>
+            <div class="ratingWindowModalContent">
+              <input
+              id="petActivity"
+              name="petActivity"
+              type="range"
+              min="1"
+              max="5"
+              value="1"
+              onchange="showValue(this.value)"
+            /><span id="range">1</span>
+            </div>
+        </div>
     </div>
+      
+    <script>
+      function showValue(newValue) {
+        document.getElementById("range").innerHTML = newValue;
+      }
+    </script>
     <script type="module" src="./script/getAllAlbumNames.js"></script>
     <script type="module" src="./script/getSpecifikAlbum.js"></script>
   </body>
