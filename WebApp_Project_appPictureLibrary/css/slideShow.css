@@ -1,10 +1,13 @@
 .FlexWrap{
-  width: 100vw;
-  height: 100vh;
+  width: auto;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  
 }
+
 
 .ShowSlide {
   display: flex;
@@ -29,9 +32,7 @@ img{
   font-weight: bold;
   font-size: 24px;
   font-style:normal;
-
 }
-
 
 .comment{
   margin: auto;
@@ -42,30 +43,32 @@ img{
   color: black;
   padding: 10px 0;
   height: 200px;
-  overflow-wrap: break-word;
+  overflow-wrap: break-word; 
+  font-style: italic;
+  font-size: 16px;
+  flex-wrap: wrap;
 }
-
 .prev, .next {
-cursor: pointer;
-width: auto;
-margin-top: -22px;
-padding: 16px;
-color: black;
-font-weight: bold;
-font-size: 50px;
+  cursor: pointer;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: black;
+  font-weight: bold;
+  font-size: 50px;
 }
 
 .prev:hover, .next:hover {
-background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0,0,0,0.8);
 }
 
 .fade {
-animation-name: fade;
-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
 }
 
 
 @keyframes fade {
-from {opacity: .4}
-to {opacity: 1}
+  from {opacity: .4}
+  to {opacity: 1}
 }

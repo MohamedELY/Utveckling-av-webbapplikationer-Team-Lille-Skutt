@@ -46,7 +46,7 @@ img {
   z-index: 2;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 780px) {
   .MainWrap {
     flex-direction: column;
   }
