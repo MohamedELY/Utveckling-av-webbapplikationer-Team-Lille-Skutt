@@ -9,29 +9,28 @@ let slideIndex = 1;
 
 //use the DOMContentLoaded, or window load event to read the library async and render the images
 window.addEventListener('DOMContentLoaded', async () => {
-
-
+  
+  let picIds = JSON.parse(sessionStorage.getItem("pictureIdForSlide"));
   const savedAlbumId = JSON.parse(sessionStorage.getItem("selectedAlbumId")) || []
   library = await lib.pictureLibraryBrowser.fetchJSON(libraryJSON);  //reading library from JSON on local server 
   //library = lib.pictureLibraryBrowser.createFromTemplate();  //generating a library template instead of reading JSON
   createLArrow();
   let dotIndex = 1;
   for (const album of library.albums) {
-
     if (album.id === savedAlbumId) {
-      //renderImage(album.headerImage, album.id);
-      for (const picture of album.pictures) {
-        //renderImage(`${album.path}/${picture.imgLoRes}`, picture.id, picture.title, picture.comment);
-        renderImage(`${album.path}/${picture.imgHiRes}`, picture.id, picture.title, picture.comment);
-        createDot(dotIndex);
-        dotIndex++;
-
+      for (const picId of picIds) {
+        for (const picture of album.pictures) {
+          if(picture.id === picId){
+            renderImage(`${album.path}/${picture.imgHiRes}`, picture.id, picture.title, picture.comment);
+            createDot(dotIndex);
+            dotIndex++;
+          }
+        }
       }
     }
   }
   showSlides(slideIndex);
   createRArrow();
-
 });
 
 

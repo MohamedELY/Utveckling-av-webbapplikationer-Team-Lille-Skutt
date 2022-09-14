@@ -71,5 +71,15 @@ img {
   .dropdown-content {
     margin-top: 400px;
   }
+
+  .slideBtn{
+    margin-top: 0px;
+  }
 }
 
+.slideBtn{
+  border: none;
+  background-color:#eBecf2;
+  cursor: pointer;
+  margin-top: 24px;
+}

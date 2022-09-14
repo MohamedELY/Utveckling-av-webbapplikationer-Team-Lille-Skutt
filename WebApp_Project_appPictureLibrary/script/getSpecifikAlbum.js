@@ -28,11 +28,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-window.addEventListener('click',  () => {
-
-  //just to confirm that the library is accessible as a global variable read async
-  console.log (`library has ${library.albums.length} albums`);
-});
 
 //Render the images
 function renderImage(src, tag, Title, Comment) {
@@ -40,17 +35,28 @@ function renderImage(src, tag, Title, Comment) {
   const div = document.createElement('div');
   div.className = `FlexItem`;
   div.dataset.picId = tag;
+
+  const innerDiv = document.createElement('div');
+  innerDiv.className = `innerItemDiv`;
   
   const editBtn = document.createElement('button');
   editBtn.className = "editBtn";
   editBtn.id = tag;
   editBtn.innerHTML = "🖉"; 
-  div.appendChild(editBtn)
+  innerDiv.appendChild(editBtn);
 
-  const title = document.createElement('p')
-  title.className = 'title'
-  title.innerHTML = Title
-  div.appendChild(title)
+  const checkBox = document.createElement("INPUT");
+  checkBox.className = "chkBox";
+  checkBox.id = tag;
+  checkBox.setAttribute("type", "checkbox");
+  innerDiv.appendChild(checkBox);
+
+  div.appendChild(innerDiv);
+
+  const title = document.createElement('p');
+  title.className = 'title';
+  title.innerHTML = Title;
+  div.appendChild(title);
 
   const img = document.createElement('img');
   img.src = src;
@@ -82,9 +88,32 @@ function renderImage(src, tag, Title, Comment) {
   const comment = document.createElement('p');
   comment.className = 'comment';
   comment.innerHTML = Comment;
-  div.appendChild(comment)
+  div.appendChild(comment);
 
   const imgFlex = document.querySelector('.FlexWrap');
   imgFlex.appendChild(div);
 
+
+  
 };
+
+
+let slideBtn = document.querySelector('.slideBtn');
+
+slideBtn.addEventListener('click',  () => {
+  
+  let allCheckItems = document.getElementsByClassName("chkBox");
+  let allCheckItemsTrue = [];
+  
+  for (const checkBox of allCheckItems) {
+    if (checkBox.checked === true) {
+      allCheckItemsTrue.push(checkBox.id)
+    }
+  }
+  
+  sessionStorage.setItem("pictureIdForSlide", JSON.stringify(allCheckItemsTrue));
+  location.href = "/slideShow.html";
+  //console.log(allCheckItemsTrue);
+});
+
+
