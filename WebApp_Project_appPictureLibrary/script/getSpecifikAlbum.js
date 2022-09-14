@@ -92,9 +92,6 @@ function renderImage(src, tag, Title, Comment) {
 
   const imgFlex = document.querySelector('.FlexWrap');
   imgFlex.appendChild(div);
-
-
-  
 };
 
 
