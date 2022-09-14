@@ -36,7 +36,7 @@
 }
 */
 
-.editBtn{
+.editBtn {
     position:relative;
     display: flex;
     font-size: 1.6rem;
@@ -58,9 +58,36 @@
     5px 5px 10px rgba(0, 0, 0, 0.25);
     transition: 0.5s;
 }
+.ratingBtn{
+    position:relative;
+    display: flex;
+    font-size: 1rem;
+    line-height: 1rem;
+    top: -0.2rem;
+    left: -0.5rem;
+    height: 1.5rem;
+    width: 2rem;
+    justify-content: center;
+    background-color: #eBecf2;
+    border: 0px ;
+    margin-top: 3px;
+    margin-left: 3px;
+    border-radius: 20%;
+    padding-top: 0.2rem;
+    padding-right: 0.3rem;
+    padding-left: 0.1rem;
+    cursor:pointer;
+    box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.80),
+    5px 5px 10px rgba(0, 0, 0, 0.25);
+    transition: 0.5s;
+}
 
 .editBtn:hover{
-    box-shadow:none 
+    box-shadow:none; 
+}
+
+.ratingBtn:hover{
+    box-shadow:none; 
 }
 
 .innerItemDiv{
@@ -70,4 +97,9 @@
 
 .chkBox{
     width: 23px;
+}
+
+#rateRange{
+    margin-top: 30px;
+    width: 200px;
 }

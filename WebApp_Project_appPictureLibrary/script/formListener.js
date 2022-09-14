@@ -87,3 +87,5 @@ if (pictureForm !== null)
     }
   });
 }
+
+const ratingForm = document.getElementById('add-Picture-Form');

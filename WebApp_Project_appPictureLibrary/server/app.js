@@ -43,10 +43,6 @@ app.post('/api/upload/album', (req, res) => {
         }
       });
 
-      console.log(dir);
-      res.status(500).send('end');
-      return;
-
       // Process uploaded image
       let oldPath = files.myFile.filepath;
       let newPath = albumHeaderDir + `${title}-header.${fileExtention}`;

@@ -38,13 +38,39 @@ function renderImage(src, tag, Title, Comment) {
 
   const innerDiv = document.createElement('div');
   innerDiv.className = `innerItemDiv`;
-  
+
+  /* Logic for Edit buttton */
   const editBtn = document.createElement('button');
   editBtn.className = "editBtn";
   editBtn.id = tag;
   editBtn.innerHTML = "🖉"; 
   innerDiv.appendChild(editBtn);
+  /* End of Logic for Edit buttton */
 
+
+  /* Logic for rating buttton */
+  const ratingBtn = document.createElement('button');
+  ratingBtn.className = "ratingBtn";
+  ratingBtn.id = tag;
+  ratingBtn.innerHTML = "⭐";
+
+  let pageContentInModal = document.querySelector(".rateContentInModal");
+  let ratedPictureIdHolder = document.querySelector(".ratedPictureId"); 
+
+  ratingBtn.addEventListener('click', () => {
+    pageContentInModal.style.display = "block";
+    ratedPictureIdHolder.ariaValueText = tag;
+  });
+
+  let closeBtn = document.querySelector(".ratingWindowModalHeader .btnCloseModal");
+  closeBtn.addEventListener('click', () => { pageContentInModal.style.display = "none"; })
+
+  innerDiv.appendChild(ratingBtn);
+  /* End of Logic for rating buttton */
+
+
+
+  /* Logic for checkbox */
   const checkBox = document.createElement("INPUT");
   checkBox.className = "chkBox";
   checkBox.id = tag;
@@ -52,6 +78,7 @@ function renderImage(src, tag, Title, Comment) {
   innerDiv.appendChild(checkBox);
 
   div.appendChild(innerDiv);
+ /* End of Logic for checkbox */
 
   const title = document.createElement('p');
   title.className = 'title';
@@ -112,5 +139,8 @@ slideBtn.addEventListener('click',  () => {
   location.href = "/slideShow.html";
   //console.log(allCheckItemsTrue);
 });
+
+
+
 
 
