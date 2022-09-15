@@ -64,9 +64,13 @@
     cursor: pointer;
   }
 
-  @media only screen and (max-width: 700px){
+  @media screen and (max-width: 780px) {
     .modal-content {
       width: 100%;
+    }
+
+    .ratingWindowModal{
+      left: 30%;
     }
   }
 
@@ -152,7 +156,6 @@
   5px 5px 10px rgba(0, 0, 0, 0.25);
   transition: 0.5s;
   border: 0px ;
-
   border-radius: 12px;
   margin-top: 30px;
   margin-left: 160px;
