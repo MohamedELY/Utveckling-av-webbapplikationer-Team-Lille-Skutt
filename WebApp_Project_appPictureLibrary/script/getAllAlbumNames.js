@@ -22,12 +22,6 @@ for (const album of library.albums) {
 })
 
 
-window.addEventListener('click',  () => {
-
-  //just to confirm that the library is accessible as a global variable read async
-  console.log (`library has ${library.albums.length} albums`);
-});
-
 //Render the images
 function renderAlbumMenu(Title, AlbumId) {
 

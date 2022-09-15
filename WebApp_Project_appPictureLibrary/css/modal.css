@@ -162,6 +162,10 @@
   margin-bottom: 20px;
 }
 
+.ratedPictureId{
+  display: none;
+}
+
 .ratingForm{
   height: 200px;
 }

@@ -90,7 +90,6 @@ app.post('/api/upload/album', (req, res) => {
 
 app.post('/api/upload/picture', (req, res) => {
   const form = new formidable.IncomingForm();
-    console.log("inside server");
     form.parse(req, function(err, fields, files){
       
       if (err) {
@@ -182,20 +181,43 @@ app.post('/api/upload/picture', (req, res) => {
     res.send(200); 
   });
 });
+ /* --------------------------------------------------------------- */
 
-/*
-app.post('/', (req, res) => {
-  const form = formidable();
 
-  form.parse(req, (err, fields) => {
+app.post('/api/upload/rating', (req, res) => {
+  const form = new formidable.IncomingForm();
+  form.parse(req, function(err, fields, files){
+
+    console.log("Inside rating server");
     if (err) {
       return;
     }
-    console.log('POST body:', fields);
-    res.sendStatus(200); 
-  });
+
+    // Load and alter picture-library.json
+    libraryJson = JSON.parse(fs.readFileSync(libraryJsonPath));
+
+
+    for (const album of libraryJson.album) {
+      if (album.id === fields.albumId){
+        for (const picture of album) {
+          if(picture.id === fields.ratedPictureId){
+              picture.rating = fields.rateRange;
+          }
+        }
+      }
+    }
+
+    fs.writeFileSync(libraryJsonPath, JSON.stringify(libraryJson), function(err) {
+      // Todo: remove album header picture and directory in case of an error
+      
+      res.sendStatus(501);
+      return;
+    });
+
+    res.send(200);
+  })
 });
-*/
+
 
 app.listen(port, () =>
   console.log(`http://localhost:${port} is listening.`)
@@ -203,11 +225,11 @@ app.listen(port, () =>
 
 function loadPictureLibraryJSON(path){
   return fs.readFileSync(path);
-}
+};
 
 function CreatePictureLibrary(path, name, desc, headerImage){
   return fs.readFileSync(path);
-}
+};
 
 function checkMimeType(mimeType)
 {
@@ -220,11 +242,11 @@ function checkMimeType(mimeType)
       return mimeType.split('/').pop();
     } 
     return false;
-}
+};
 
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
-}
+};
 
 function uniqueId() {
   const dateString = Date.now().toString(36);

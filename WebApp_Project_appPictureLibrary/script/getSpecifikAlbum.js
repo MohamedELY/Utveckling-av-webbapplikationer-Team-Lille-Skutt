@@ -56,10 +56,11 @@ function renderImage(src, tag, Title, Comment) {
 
   let pageContentInModal = document.querySelector(".rateContentInModal");
   let ratedPictureIdHolder = document.querySelector(".ratedPictureId"); 
-
+  
   ratingBtn.addEventListener('click', () => {
     pageContentInModal.style.display = "block";
-    ratedPictureIdHolder.ariaValueText = tag;
+    ratedPictureIdHolder.value = tag;
+    console.log("Rate picture " + Title + " with ID: " + ratedPictureIdHolder.value);
   });
 
 

@@ -68,18 +68,21 @@
                 <h2>Rate The Picture</h2>
                 <span class="btnCloseModal">&times;</span>
             </div>
-            <div class="ratingWindowModalContent">
-              <input
-              id="rateRange"
-              name="rateRange"
-              type="range"
-              min="1"
-              max="5"
-              value="1"
-              onchange="showValue(this.value)"
-            /><span id="range">1</span>
-            </div>
-            <button class="rateModelBtn">Submit</button>
+            <form id="rating-Form">
+              <div class="ratingWindowModalContent">
+                <input
+                id="rateRange"
+                name="rateRange"
+                type="range"
+                min="1"
+                max="5"
+                value="1"
+                onchange="showValue(this.value)"
+              /><span id="range">1</span>
+              </div>
+              <input type="text" class="ratedPictureId" name="ratedPictureId">
+              <button class="rateModelBtn">Submit</button>
+            </form>
         </div>
     </div>
       
@@ -90,5 +93,6 @@
     </script>
     <script type="module" src="./script/getAllAlbumNames.js"></script>
     <script type="module" src="./script/getSpecifikAlbum.js"></script>
+    <script type="module" src="./script/formListener.js"></script>
   </body>
 </html>

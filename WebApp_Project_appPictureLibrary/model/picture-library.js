@@ -44,30 +44,30 @@ class pictureLibrary {
 
 const library = pictureLibrary.createFromTemplate();
 
-console.group('list all albums and picture ');
-console.log(`\Library have ${library.albums.length} albums(s):`);
-for (const album of library.albums) {
-    console.log('--- Album -----\n' + album);
+// console.group('list all albums and picture ');
+// console.log(`\Library have ${library.albums.length} albums(s):`);
+// for (const album of library.albums) {
+//     console.log('--- Album -----\n' + album);
 
-    console.log(`\n${album.pictures.length} picture(s) in album:`)
-    for (const picture of album.pictures) {
-        console.log('\n' + picture);
-    }
-    console.log('---------------\n');
-}
-console.groupEnd();
+//     console.log(`\n${album.pictures.length} picture(s) in album:`)
+//     for (const picture of album.pictures) {
+//         console.log('\n' + picture);
+//     }
+//     console.log('---------------\n');
+// }
+// console.groupEnd();
 
-console.group('find an album by title and id')
+// console.group('find an album by title and id')
 
-let album = library.findAlbumByTitle('galaxies');
-console.log(`album ${album.title} with id: ${album.id} has ${album.pictures.length} pictures`);
+// let album = library.findAlbumByTitle('galaxies');
+// console.log(`album ${album.title} with id: ${album.id} has ${album.pictures.length} pictures`);
 
-album = library.findAlbumByTitle('nebulas');
-console.log(`album ${album.title} with id: ${album.id} has ${album.pictures.length} pictures`);
+// album = library.findAlbumByTitle('nebulas');
+// console.log(`album ${album.title} with id: ${album.id} has ${album.pictures.length} pictures`);
 
-album = library.findAlbumById(album.id);
-console.log(`album ${album.title} with id: ${album.id} has ${album.pictures.length} pictures`);
-console.groupEnd();
+// album = library.findAlbumById(album.id);
+// console.log(`album ${album.title} with id: ${album.id} has ${album.pictures.length} pictures`);
+// console.groupEnd();
 
 
 export {pictureLibrary};
