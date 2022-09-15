@@ -196,17 +196,23 @@ app.post('/api/upload/rating', (req, res) => {
     // Load and alter picture-library.json
     libraryJson = JSON.parse(fs.readFileSync(libraryJsonPath));
 
-
-    for (const album of libraryJson.album) {
+    let success = false;
+    for (const album of libraryJson.albums) {
       if (album.id === fields.albumId){
-        for (const picture of album) {
-          if(picture.id === fields.ratedPictureId){
-              picture.rating = fields.rateRange;
+        for (const picture of album.pictures) {
+          if(picture.id === fields.ratedPictureId)
+          {
+            picture.rating = fields.rateRange;
+            success = true;
           }
         }
       }
     }
-
+    if(!success){
+      res.status(501).send("Could not find picture!");
+      return;
+    }
+    
     fs.writeFileSync(libraryJsonPath, JSON.stringify(libraryJson), function(err) {
       // Todo: remove album header picture and directory in case of an error
       

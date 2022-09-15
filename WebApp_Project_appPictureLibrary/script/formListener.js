@@ -111,7 +111,7 @@ if (rateForm !== null)
       const result = await response.text();
 
       if (response.ok) {
-        alert("Rating has been uppdated");
+        alert("Rating has been uppdated.");
       }
       else if(response.status == 415){
         alert("Invalid format");

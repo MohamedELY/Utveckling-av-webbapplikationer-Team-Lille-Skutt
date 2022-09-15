@@ -22,7 +22,7 @@ window.addEventListener('DOMContentLoaded', async () => {
             //renderImage(album.headerImage, album.id);
             for (const picture of album.pictures) {
               //renderImage(`${album.path}/${picture.imgLoRes}`, picture.id, picture.title, picture.comment);
-              renderImage(`${album.path}/${picture.imgHiRes}`, picture.id, picture.title, picture.comment);
+              renderImage(`${album.path}/${picture.imgHiRes}`, picture.id, picture.title, picture.comment, picture.rating);
             }
         }
     }
@@ -30,7 +30,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 
 //Render the images
-function renderImage(src, tag, Title, Comment) {
+function renderImage(src, tag, Title, Comment, rating) {
 
   const div = document.createElement('div');
   div.className = `FlexItem`;
@@ -52,7 +52,12 @@ function renderImage(src, tag, Title, Comment) {
   const ratingBtn = document.createElement('button');
   ratingBtn.className = "ratingBtn";
   ratingBtn.id = tag;
-  ratingBtn.innerHTML = "⭐";
+  if(rating == undefined){
+    ratingBtn.innerHTML = "⭐";
+  }
+  else{
+    ratingBtn.innerHTML = "⭐" + rating;
+  }
 
   let pageContentInModal = document.querySelector(".rateContentInModal");
   let ratedPictureIdHolder = document.querySelector(".ratedPictureId"); 
