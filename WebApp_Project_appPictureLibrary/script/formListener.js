@@ -119,7 +119,7 @@ if (rateForm !== null)
         alert("Invalid format");
       }
       else if(response.status == 501){
-        alert("Error creating album");
+        alert("Error Uppdating Rating");
       }
       else {
         alert("Transmission error from else if");

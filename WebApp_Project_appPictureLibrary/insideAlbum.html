@@ -21,7 +21,7 @@
         <div class="dropdown">
           <a class="navLink dropbtn" href="/allAlbums.html">Albums</a>
           <div class="dropdown-content">
-            <a href="/addAlbum.html">New Album</a>
+            <a href="/addAlbum.html" class="newAlbumOption">New Album</a>
           </div>
         </div>
         <div>
@@ -62,6 +62,41 @@
         <div id="caption"></div>
       </div>
 
+      <!-- Modal for editiong picture -->
+    <div id="editModal" class="pageContentInModal">
+      <div class="windowModal">
+        <div class="windowModalHeader">
+          <h2 class="brand-title">EDITOR</h2>
+          <span class="btnCloseModal">&times;</span>
+        </div>
+        <div class="windowModalContent">
+          <form id="add-Modal-Form">
+            <div class="big-title1"></div>
+            <div class="editInputs">
+              <label id="editLblTitle">Title:</label>
+              <input type="text" name="modalTitle" id="modalTitle" required />
+
+              <label id="editLblDescription">Description:</label>
+              <input
+                type="text"
+                id="modalDescription"
+                name="modalDescription"
+                required
+              />
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <button id="editSubmitButton" type="submit">SUBMIT</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- End Of Modal for editiong picture -->
+
+    <!-- Modal for rating picture -->
       <div class="rateContentInModal">
         <div class="ratingWindowModal">
             <div class="ratingWindowModalHeader">
@@ -91,6 +126,8 @@
         document.getElementById("range").innerHTML = newValue;
       }
     </script>
+    <!-- End Of Modal for rating picture -->
+    
     <script type="module" src="./script/getAllAlbumNames.js"></script>
     <script type="module" src="./script/getSpecifikAlbum.js"></script>
     <script type="module" src="./script/formListener.js"></script>

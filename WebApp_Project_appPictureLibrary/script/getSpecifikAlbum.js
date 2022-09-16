@@ -16,16 +16,33 @@ window.addEventListener('DOMContentLoaded', async () => {
     library = await lib.pictureLibraryBrowser.fetchJSON(libraryJSON);  //reading library from JSON on local server 
     //library = lib.pictureLibraryBrowser.createFromTemplate();  //generating a library template instead of reading JSON
 
-    for (const album of library.albums) {
-    
-        if(album.id === savedAlbumId){
-            //renderImage(album.headerImage, album.id);
-            for (const picture of album.pictures) {
-              //renderImage(`${album.path}/${picture.imgLoRes}`, picture.id, picture.title, picture.comment);
-              renderImage(`${album.path}/${picture.imgHiRes}`, picture.id, picture.title, picture.comment, picture.rating);
-            }
+
+    let isNumber = false;
+
+    if(!isNaN(savedAlbumId)){
+      for (const album of library.albums) {
+        //renderImage(album.headerImage, album.id);
+        for (const picture of album.pictures) {
+            if(savedAlbumId == picture.rating)
+            //renderImage(`${album.path}/${picture.imgLoRes}`, picture.id, picture.title, picture.comment);
+            renderImage(`${album.path}/${picture.imgHiRes}`, picture.id, picture.title, picture.comment, picture.rating);
         }
+      }
     }
+    else{
+      for (const album of library.albums) {
+        if(album.id === savedAlbumId){
+          //renderImage(album.headerImage, album.id);
+          for (const picture of album.pictures) {
+            //renderImage(`${album.path}/${picture.imgLoRes}`, picture.id, picture.title, picture.comment);
+            renderImage(`${album.path}/${picture.imgHiRes}`, picture.id, picture.title, picture.comment, picture.rating);
+          }
+        }
+      }
+    }
+
+
+    
 });
 
 
@@ -39,14 +56,6 @@ function renderImage(src, tag, Title, Comment, rating) {
   const innerDiv = document.createElement('div');
   innerDiv.className = `innerItemDiv`;
 
-  /* Logic for Edit buttton */
-  const editBtn = document.createElement('button');
-  editBtn.className = "editBtn";
-  editBtn.id = tag;
-  editBtn.innerHTML = "🖉"; 
-  innerDiv.appendChild(editBtn);
-  /* End of Logic for Edit buttton */
-
 
   /* Logic for rating buttton */
   const ratingBtn = document.createElement('button');
@@ -58,24 +67,56 @@ function renderImage(src, tag, Title, Comment, rating) {
   else{
     ratingBtn.innerHTML = "⭐" + rating;
   }
-
-  let pageContentInModal = document.querySelector(".rateContentInModal");
+  
+  let pageContentInRatingModal = document.querySelector(".rateContentInModal");
   let ratedPictureIdHolder = document.querySelector(".ratedPictureId"); 
   
   ratingBtn.addEventListener('click', () => {
-    pageContentInModal.style.display = "block";
+    pageContentInRatingModal.style.display = "block";
     ratedPictureIdHolder.value = tag;
     console.log("Rate picture " + Title + " with ID: " + ratedPictureIdHolder.value);
   });
-
-
-  let closeBtn = document.querySelector(".ratingWindowModalHeader .btnCloseModal");
-  closeBtn.addEventListener('click', () => { pageContentInModal.style.display = "none"; })
-
+  
+  
+  let closeBtnRatingModal = document.querySelector(".ratingWindowModalHeader .btnCloseModal");
+  closeBtnRatingModal.addEventListener('click', () => { pageContentInRatingModal.style.display = "none"; })
+  
   innerDiv.appendChild(ratingBtn);
   /* End of Logic for rating buttton */
 
-
+  //Logic for Edit Button
+  const editBtn = document.createElement('button');
+  editBtn.className = "editBtn";
+  editBtn.id = tag;
+  editBtn.innerHTML = "🖉"; 
+  innerDiv.appendChild(editBtn);
+ 
+  
+  let pageContentInModal = document.querySelector(".pageContentInModal");
+  let closeBtn = document.querySelector(".windowModalHeader .btnCloseModal");
+  
+  let modalTitle = document.getElementById("modalTitle");
+  let modalDescription = document.getElementById("modalDescription");
+  
+  
+  editBtn.addEventListener('click', () => { 
+    console.log("Edit button has been pressed");
+    pageContentInModal.style.display = "block";
+    modalTitle.value = Title;
+    modalDescription.value = Comment;
+    sessionStorage.setItem('selectedEditPicId', JSON.stringify(tag))
+  });
+  
+  closeBtn.addEventListener('click', () => { pageContentInModal.style.display = "none"; })
+  
+  window.addEventListener('click', (e) => {
+    if (e.target == pageContentInModal) {
+      pageContentInModal.style.display = "none";
+    }
+  });
+  
+  // End Of Logic for Edit Button
+  div.appendChild(innerDiv);
 
   /* Logic for checkbox */
   const checkBox = document.createElement("INPUT");

@@ -18,7 +18,7 @@ for (const album of library.albums) {
 
     //renderImage(album.headerImage, album.id);
     for (const picture of album.pictures) {
-      renderImage(`${album.path}/${picture.imgLoRes}`, `${album.path}/${picture.imgHiRes}`, picture.id, picture.title, picture.comment);
+      renderImage(`${album.path}/${picture.imgLoRes}`, `${album.path}/${picture.imgHiRes}`, picture.id, picture.title, picture.comment, picture.rating);
       //renderImage(`${album.path}/${picture.imgHiRes}`, picture.id, picture.title, picture.comment);
     }
   }
@@ -26,28 +26,58 @@ for (const album of library.albums) {
 
 
 //Render the images
-function renderImage(srcL, srcH, tag, Title, Comment) {
+function renderImage(srcL, srcH, tag, Title, Comment, rating) {
 
   const div = document.createElement('div');
   div.className = `FlexItem`;
   div.dataset.albumId = tag;
     
+  const innerDiv = document.createElement('div');
+  innerDiv.className = `innerItemDiv`;
 
+  
+  /* Logic for rating buttton */
+  const ratingBtn = document.createElement('button');
+  ratingBtn.className = "ratingBtn";
+  ratingBtn.id = tag;
+  if(rating == undefined){
+    ratingBtn.innerHTML = "⭐0";
+  }
+  else{
+    ratingBtn.innerHTML = "⭐" + rating;
+  }
+  
+  let pageContentInRatingModal = document.querySelector(".rateContentInModal");
+  let ratedPictureIdHolder = document.querySelector(".ratedPictureId"); 
+  
+  ratingBtn.addEventListener('click', () => {
+    pageContentInRatingModal.style.display = "block";
+    ratedPictureIdHolder.value = tag;
+    console.log("Rate picture " + Title + " with ID: " + ratedPictureIdHolder.value);
+  });
+  
+  
+  let closeBtnRatingModal = document.querySelector(".ratingWindowModalHeader .btnCloseModal");
+  closeBtnRatingModal.addEventListener('click', () => { pageContentInRatingModal.style.display = "none"; })
+  
+  innerDiv.appendChild(ratingBtn);
+  /* End of Logic for rating buttton */
+  
   //Logic for Edit Button
   const editBtn = document.createElement('button');
   editBtn.className = "editBtn";
   editBtn.id = tag;
   editBtn.innerHTML = "🖉"; 
-  div.appendChild(editBtn);
-
-
+  innerDiv.appendChild(editBtn);
+ 
+  
   let pageContentInModal = document.querySelector(".pageContentInModal");
   let closeBtn = document.querySelector(".windowModalHeader .btnCloseModal");
-
+  
   let modalTitle = document.getElementById("modalTitle");
   let modalDescription = document.getElementById("modalDescription");
-
-
+  
+  
   editBtn.addEventListener('click', () => { 
     console.log("Edit button has been pressed");
     pageContentInModal.style.display = "block";
@@ -55,16 +85,17 @@ function renderImage(srcL, srcH, tag, Title, Comment) {
     modalDescription.value = Comment;
     sessionStorage.setItem('selectedEditPicId', JSON.stringify(tag))
   });
-
+  
   closeBtn.addEventListener('click', () => { pageContentInModal.style.display = "none"; })
-
+  
   window.addEventListener('click', (e) => {
     if (e.target == pageContentInModal) {
-       pageContentInModal.style.display = "none";
+      pageContentInModal.style.display = "none";
     }
- });
-
-// End Of Logic for Edit Button
+  });
+  
+  // End Of Logic for Edit Button
+  div.appendChild(innerDiv);
 
   const title = document.createElement('p');
   title.className = 'title';

@@ -198,13 +198,11 @@ app.post('/api/upload/rating', (req, res) => {
 
     let success = false;
     for (const album of libraryJson.albums) {
-      if (album.id === fields.albumId){
-        for (const picture of album.pictures) {
-          if(picture.id === fields.ratedPictureId)
-          {
-            picture.rating = fields.rateRange;
-            success = true;
-          }
+      for (const picture of album.pictures) {
+        if(picture.id === fields.ratedPictureId)
+        {
+          picture.rating = fields.rateRange;
+          success = true;
         }
       }
     }
