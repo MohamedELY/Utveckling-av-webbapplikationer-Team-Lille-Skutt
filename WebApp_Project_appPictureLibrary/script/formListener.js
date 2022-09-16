@@ -6,12 +6,15 @@ const albumForm = document.getElementById('add-Album-Form');
 const pictureForm = document.getElementById('add-Picture-Form');
 const rateForm = document.getElementById('rating-Form');
 const editForm = document.getElementById('add-Modal-Form');
+const deleteForm = document.getElementById('deletePictureButton');
+
 
 //Start the server by opening a terminal in /case-study-server and type node simple-with-form.js
 const urlAlbumForm = 'http://localhost:3000/api/upload/album';
 const urlPictureForm = 'http://localhost:3000/api/upload/picture';
 const urlRatingForm = 'http://localhost:3000/api/upload/rating';
 const urlEditForm = 'http://localhost:3000/api/upload/editPic';
+const urlDeleteForm ='http://localhost:3000/api/delete';
 
 if (albumForm !== null)
 {
@@ -157,6 +160,41 @@ if (editForm !== null)
 
       if (response.ok) {
         alert("Changes are now saved");
+      }
+      else {
+        alert("Transmission error");
+      }
+      console.log(result);
+    }
+    catch {
+      alert("Transmission error");
+    } 
+  });
+}
+
+if (deleteForm !== null)
+{
+  deleteForm.addEventListener('click', async event => {
+    event.preventDefault();
+
+    console.log("inside client side")
+    //Create the key/value pairs used in the form
+    
+    const formData = new FormData(editForm);
+
+    const deleteId = JSON.parse(sessionStorage.getItem("selectedEditPicId")) || []
+    formData.append('editPicId', deleteId);
+
+    try {
+      //send the data using post and await the reply
+      const response = await fetch(urlDeleteForm, {
+        method: 'post',
+        body: formData
+      });
+      const result = await response.text();
+
+      if (response.ok) {
+        alert("Picture is deleted");
       }
       else {
         alert("Transmission error");

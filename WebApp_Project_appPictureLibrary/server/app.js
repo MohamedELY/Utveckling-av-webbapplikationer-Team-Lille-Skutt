@@ -261,6 +261,37 @@ app.post('/api/upload/editPic', (req, res) => {
 
 /*-------------------------------------------------------------------------------------------------*/
 
+app.post('/api/delete', (req, res) => {
+  const form = new formidable.IncomingForm();
+  form.parse(req, function(err, fields, files){
+    
+    if (err) {
+      return;
+    }
+
+    libraryJson = JSON.parse(fs.readFileSync(libraryJsonPath));
+
+    for (const album of libraryJson.albums) {
+
+      for (var i = 0; i < album.pictures.length; i++) {
+
+        if(album.pictures[i].id === fields.deleteId){
+            album.pictures.splice(i, 1); 
+          }       
+        }
+      }
+
+      fs.writeFileSync(libraryJsonPath, JSON.stringify(libraryJson), function(err) {
+        res.status(501).send("Error submitting");
+        return;
+      });
+  
+    res.status(200).send("Changes saved!"); 
+  });
+});
+
+/*-------------------------------------------------------------------------------------------------*/
+
 app.listen(port, () =>
   console.log(`http://localhost:${port} is listening.`)
 );
