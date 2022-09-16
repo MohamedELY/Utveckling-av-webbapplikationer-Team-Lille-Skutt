@@ -53,7 +53,7 @@ function renderImage(src, tag, Title, Comment, rating) {
   ratingBtn.className = "ratingBtn";
   ratingBtn.id = tag;
   if(rating == undefined){
-    ratingBtn.innerHTML = "⭐";
+    ratingBtn.innerHTML = "⭐0";
   }
   else{
     ratingBtn.innerHTML = "⭐" + rating;

@@ -224,6 +224,44 @@ app.post('/api/upload/rating', (req, res) => {
   })
 });
 
+/*-------------------------------------------------------------------------------------------------*/
+
+
+app.post('/api/upload/editPic', (req, res) => {
+  const form = new formidable.IncomingForm();
+
+    form.parse(req, function(err, fields, files){
+      
+      if (err) {
+        return;
+      }
+      console.log("Inside Server");
+        // Load and alter picture-library.json
+        libraryJson = JSON.parse(fs.readFileSync(libraryJsonPath));
+
+        for (const album of libraryJson.albums) {
+
+          for (const pic of album.pictures) {
+            if(pic.id === fields.editPicId){
+              pic.title = fields.modalTitle;
+              pic.comment = fields.modalDescription;
+            }
+          }
+        }
+             
+        fs.writeFileSync(libraryJsonPath, JSON.stringify(libraryJson), function(err) {
+          // Todo: remove album header picture and directory in case of an error
+          
+          res.status(501).send("Error submitting");
+          return;
+        });
+        
+
+    res.status(200).send("Changes saved!"); 
+  });
+});
+
+/*-------------------------------------------------------------------------------------------------*/
 
 app.listen(port, () =>
   console.log(`http://localhost:${port} is listening.`)

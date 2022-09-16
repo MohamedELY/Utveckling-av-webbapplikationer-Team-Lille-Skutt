@@ -32,11 +32,39 @@ function renderImage(srcL, srcH, tag, Title, Comment) {
   div.className = `FlexItem`;
   div.dataset.albumId = tag;
     
+
+  //Logic for Edit Button
   const editBtn = document.createElement('button');
   editBtn.className = "editBtn";
   editBtn.id = tag;
   editBtn.innerHTML = "🖉"; 
-  div.appendChild(editBtn)
+  div.appendChild(editBtn);
+
+
+  let pageContentInModal = document.querySelector(".pageContentInModal");
+  let closeBtn = document.querySelector(".windowModalHeader .btnCloseModal");
+
+  let modalTitle = document.getElementById("modalTitle");
+  let modalDescription = document.getElementById("modalDescription");
+
+
+  editBtn.addEventListener('click', () => { 
+    console.log("Edit button has been pressed");
+    pageContentInModal.style.display = "block";
+    modalTitle.value = Title;
+    modalDescription.value = Comment;
+    sessionStorage.setItem('selectedEditPicId', JSON.stringify(tag))
+  });
+
+  closeBtn.addEventListener('click', () => { pageContentInModal.style.display = "none"; })
+
+  window.addEventListener('click', (e) => {
+    if (e.target == pageContentInModal) {
+       pageContentInModal.style.display = "none";
+    }
+ });
+
+// End Of Logic for Edit Button
 
   const title = document.createElement('p');
   title.className = 'title';

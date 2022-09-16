@@ -47,7 +47,44 @@
       <!-- Modal Caption (Image Text) -->
       <div id="caption"></div>
     </div>
+
+    <!-- Modal for editiong picture -->
+
+    <div id="editModal" class="pageContentInModal">
+      <div class="windowModal">
+        <div class="windowModalHeader">
+          <h2 class="brand-title">EDITOR</h2>
+          <span class="btnCloseModal">&times;</span>
+        </div>
+        <div class="windowModalContent">
+          <form id="add-Modal-Form">
+            <div class="big-title1"></div>
+            <div class="inputs">
+              <label id="lbl">Title:</label>
+              <input type="text" name="modalTitle" id="modalTitle" required />
+
+              <label id="lbl">Description:</label>
+              <input
+                type="text"
+                id="modalDescription"
+                name="modalDescription"
+                required
+              />
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <button type="submit">SUBMIT</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- End Of Modal for editiong picture -->
+
     <script type="module" src="./script/appPictureLibrary.js"></script>
     <script type="module" src="./script/getAllAlbumNames.js"></script>
+    <script type="module" src="./script/formListener.js"></script>
   </body>
 </html>
