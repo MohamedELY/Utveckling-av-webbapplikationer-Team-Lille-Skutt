@@ -183,7 +183,7 @@ if (deleteForm !== null)
     const formData = new FormData(editForm);
 
     const deleteId = JSON.parse(sessionStorage.getItem("selectedEditPicId")) || []
-    formData.append('editPicId', deleteId);
+    formData.append('deleteId', deleteId);
 
     try {
       //send the data using post and await the reply
